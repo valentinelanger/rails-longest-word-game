@@ -56,7 +56,7 @@ class GamesController < ApplicationController
   end
 
   def get_translation(word)
-    api_key = "YOUR_SYSTRAN_API_KEY"
+    api_key = "d901f571-ac47-4ca4-a90d-f348859c30b9"
     begin
       response = open("https://api-platform.systran.net/translation/text/translate?source=en&target=fr&key=#{api_key}&input=#{word}")
       json = JSON.parse(response.read.to_s)
