@@ -1,6 +1,22 @@
-<ul>
-  <li>Your score is: <%= @result[:score] %></li>
-  <li>The translation is: <%= @result[:translation] %></li>
-  <li>Time to answer: <%= @result[:time] %> seconds</li>
-  <li>and we wanted to tell you: <%= @result[:message] %></li>
-</ul>
+
+<div class="container">
+  <ul>
+    <li>Your score is: <%= @result[:score] %></li>
+    <li>The translation is: <%= @result[:translation] %></li>
+    <li>Time to answer: <%= @result[:time] %> seconds</li>
+    <li>and we wanted to tell you: <%= @result[:message] %></li>
+  </ul>
+
+  <ol><% session[:scores].each_with_index do |score, index| %>
+    <li>At the session <%= index + 1 %>, your score was <%= score %></li>
+    <% @sum += score %>
+  <% end %>
+    <p> --------------------------------- </p>
+    <h3> Your average is: <%= (@sum / session[:scores].length).round(2) %> </h3>
+  </ol>
+
+
+
+</div>
+
+

@@ -3,11 +3,17 @@ class GamesController < ApplicationController
   def play
     @grid = generate_grid(10)
     @start_time = Time.now
+    session[:grid] = @grid
+    session[:start_time] = @start_time
+    session[:scores] = [] if session[:scores] == nil
   end
 
   def score
+    grid = session[:grid]
     end_time = Time.now
-    @result = run_game(params[:query], params[:grid], params[:start_time].to_time, end_time)
+    @result = run_game(params[:query], session[:grid], session[:start_time].to_time, end_time)
+    session[:scores] << @result[:score]
+    @sum = 0
   end
 
   private

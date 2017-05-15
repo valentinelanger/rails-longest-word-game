@@ -1,10 +1,12 @@
 <h3><%= @grid %></h3>
 
-<form action="/score">
-  <label for="question">Your proposal for the game:</label>
-  <input type="hidden" name="grid" value="<%= @grid %>" >
-  <input type="text" id="question" name="query" placeholder="word">
-  <input type="hidden" name="start_time" value="<%= @start_time %>">
-  <input type="submit" value="submit">
-</form>
+<div class="container">
+  <form action="/score">
+    <label for="question">Your proposal for the game:</label>
+    <!-- <input type="hidden" name="grid" value="<%= @grid %>" > -->
+    <input type="text" id="question" name="query" placeholder="word">
+    <!-- <input type="hidden" name="start_time" value="<%= @start_time %>"> -->
+    <input type="submit" value="submit">
+  </form>
+</div>
 
